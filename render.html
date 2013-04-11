@@ -1,0 +1,54 @@
+<!doctype html>
+<script src="/js/d3.v2.min.js"></script>
+<script src="http://code.shutterstock.com/rickshaw/rickshaw.min.js"></script>
+
+<div id="chart"></div>
+
+<script>
+        var graph = new Rickshaw.Graph({
+        element:document.querySelector("#chart"),
+        width:1280,
+        height:720,
+        renderer:'line',
+        series:[
+            {
+                name:'data',
+                color:'steelblue',
+                data:[
+                                ]
+            },
+            {
+                name:'data',
+                color:'green',
+                data:[
+                                ]
+            },
+            {
+                name:'deviations',
+                color:'red',
+                data:[
+                                ]
+            },
+            {
+                name:'deviations',
+                color:'yellow',
+                data:[
+                                ]
+            }
+        ]
+    });
+
+    var legend = new Rickshaw.Graph.Legend({
+        graph:graph,
+        element:document.querySelector('#chart')
+    });
+
+    var highlighter = new Rickshaw.Graph.Behavior.Series.Highlight({
+        graph:graph,
+        legend:legend
+    });
+
+    //graph.renderer.unstack = true;
+    graph.render();
+
+</script>
